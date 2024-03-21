@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>MadreTeresa | Admin</title>
+  <title>Borlabs | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -89,13 +89,8 @@
                   <div class="col-md-3">
                   <label for="exampleInputEmail1">Sede</label>
                   <select class="form-control" name="sede">
-                    <option value="1">PROCERES</option>
-                    <option value="2">CANTO REY</option>
-                    <option value="3">VIDA FELIZ</option>
-                    <option value="4">ZARATE</option>
-                    <option value="5">INDEPENDENCIA</option>
-                    <option value="6">LOS OLIVOS</option>
-                    <option value="7">LABORATORIO VIDA</option>
+                    <option value="1">PRINCIPAL</option>
+               
 
                   </select>
                    

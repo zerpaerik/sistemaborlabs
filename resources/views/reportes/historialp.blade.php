@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>MadreTeresa | Admin</title>
+  <title>Borlabs | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -140,7 +140,7 @@
                   <tr>
                     <td>{{date('d-M-y H:i', strtotime($an->created_at))}}</td>
                     @if($an->sede == 1)
-                    <td>PROCERES</td>
+                    <td>PRINCIPAL</td>
                     @elseif($an->sede == 2)
                     <td>CANTO REY</td>
                     @elseif($an->sede == 3)

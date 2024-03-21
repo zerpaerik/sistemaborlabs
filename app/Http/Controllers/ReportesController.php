@@ -246,7 +246,7 @@ class ReportesController extends Controller
         ->first(); 
 
         if($request->sede == 1){
-            $sede = 'PROCERES';
+            $sede = 'PRINCIPAL';
         } else if($request->sede == 2){
             $sede = 'CANTO REY';
         } else if($request->sede == 3){
@@ -308,7 +308,7 @@ class ReportesController extends Controller
         ->first(); 
 
         if($request->sede == 1){
-            $sede = 'PROCERES';
+            $sede = 'PRINCIPAL';
         } else if($request->sede == 2){
             $sede = 'CANTO REY';
         } else if($request->sede == 3){
@@ -367,7 +367,7 @@ class ReportesController extends Controller
         ->first(); 
 
         if($request->sede == 1){
-            $sede = 'PROCERES';
+            $sede = 'PRINCIPAL';
         } else if($request->sede == 2){
             $sede = 'CANTO REY';
         } else if($request->sede == 3){
