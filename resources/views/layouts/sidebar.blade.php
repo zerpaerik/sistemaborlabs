@@ -218,37 +218,7 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Sesiones
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('sesiones.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Por Atender</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="{{route('sesiones1.index')}}" class="nav-link">
-                  <i class="fas fa-cart-arrow-down nav-icon"></i>
-                  <p>Atendidos</p>
-                </a>
-              </li>
-
-            
-              
-            </ul>
-          </li>
-
+      
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-money-check-alt"></i>
@@ -333,34 +303,7 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Métodos Anticonceptivos
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('metodos.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Lista de Métodos</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('llamar.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Pacientes por Llamar</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-
+      
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-money-check-alt"></i>
@@ -417,27 +360,7 @@
             </a>
             <ul class="nav nav-treeview">
 
-            <li class="nav-item">
-                <a href="{{route('reporte.pacientes')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Reporte Pacientes</p>
-                </a>
-              </li> 
-
-            <li class="nav-item">
-                <a href="{{route('reporte.asignacion')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Reporte Asignaciòn</p>
-                </a>
-              </li> 
-           
-
-            <li class="nav-item">
-                <a href="{{route('reporte_total.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Reporte Total</p>
-                </a>
-              </li> 
+        
 
               <li class="nav-item">
                 <a href="{{route('detallado.index')}}" class="nav-link">
@@ -446,12 +369,7 @@
                 </a>
               </li>
             
-              <li class="nav-item">
-                <a href="{{route('reporte_servicios.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Items Total</p>
-                </a>
-              </li> 
+        
 
               <li class="nav-item">
                 <a href="{{route('reporte.individual')}}" class="nav-link">
@@ -475,36 +393,7 @@
                 </a>
               </li>
 
-              <li class="nav-item">
-                <a href="{{route('compagar.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Comisiones Personal</p>
-                </a>
-              </li>
-
-              
-              <li class="nav-item">
-                <a href="{{route('compagar1.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Comisiones Profesionales</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('materiales.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Materiales Usados</p>
-                </a>
-              </li> 
-
-              <li class="nav-item">
-                <a href="{{route('materialesm.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Materiales Malogrados</p>
-                </a>
-              </li> 
-
-              
+            
               <li class="nav-item">
                 <a href="{{route('prod_serv.index')}}" class="nav-link">
                   <i class="fas fa-hand-holding-usd nav-icon"></i>
@@ -518,49 +407,11 @@
                 </a>
               </li> 
 
-              <li class="nav-item">
-                <a href="{{route('prod_ses.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Producción Sesiones</p>
-                </a>
-              </li> 
               
             </ul>
           </li>
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tools"></i>
-              <p>
-                Anotaciones
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-            <li class="nav-item">
-                <a href="{{route('anotaciones.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lista</p>
-                </a>
-              </li>
-              
-            
-            
-              
-            </ul>
-          </li>
-
-
-        
 
        
-         
-
-        
-
-        
-
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tools"></i>
@@ -601,72 +452,8 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Creditos
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('creditos.b')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Creditos B</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="{{route('creditos.c')}}" class="nav-link">
-                  <i class="fas fa-cart-arrow-down nav-icon"></i>
-                  <p>Creditos C</p>
-                </a>
-              </li>
-
-            
-            
-              
-            </ul>
-          </li>
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Gastoss
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('gastos.b')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Gastoss B</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="{{route('gastos.c')}}" class="nav-link">
-                  <i class="fas fa-cart-arrow-down nav-icon"></i>
-                  <p>Gastoss C</p>
-                </a>
-              </li>
-
-            
-            
-              
-            </ul>
-          </li>
-
-
-          
+       
+         
          
           
          
@@ -843,36 +630,7 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Sesiones
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('sesiones.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Por Atender</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="{{route('sesiones1.index')}}" class="nav-link">
-                  <i class="fas fa-cart-arrow-down nav-icon"></i>
-                  <p>Atendidos</p>
-                </a>
-              </li>
-
-            
-              
-            </ul>
-          </li>
+         
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -958,34 +716,7 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Métodos Anticonceptivos
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('metodos.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Lista de Métodos</p>
-                </a>
-              </li>
-              
-              <li class="nav-item">
-                <a href="{{route('llamar.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Pacientes por Llamar</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-
+       
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-money-check-alt"></i>
@@ -1050,77 +781,7 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Creditos
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('creditos.b')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Creditos B</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="{{route('creditos.c')}}" class="nav-link">
-                  <i class="fas fa-cart-arrow-down nav-icon"></i>
-                  <p>Creditos C</p>
-                </a>
-              </li>
-
-            
-            
-              
-            </ul>
-          </li>
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Gastoss
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('gastos.b')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Gastoss B</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="{{route('gastos.c')}}" class="nav-link">
-                  <i class="fas fa-cart-arrow-down nav-icon"></i>
-                  <p>Gastoss C</p>
-                </a>
-              </li>
-
-            
-            
-              
-            </ul>
-          </li>
-
-
-
-          
-         
-          
-         
-         
+     
       </nav>
       <!-- /.sidebar-menu -->
     </div>
@@ -1229,39 +890,8 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Sesiones
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('sesiones.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Por Atender</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="{{route('sesiones1.index')}}" class="nav-link">
-                  <i class="fas fa-cart-arrow-down nav-icon"></i>
-                  <p>Atendidos</p>
-                </a>
-              </li>
-
-            
-              
-            </ul>
-          </li>
-
+       
          
-
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-money-check-alt"></i>
@@ -1309,33 +939,6 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Métodos Anticonceptivos
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('metodos.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Lista de Métodos</p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="{{route('llamar.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Pacientes por Llamar</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
 
 
           <li class="nav-item has-treeview">
@@ -1404,37 +1007,7 @@
           </li>
 
 
-        
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tools"></i>
-              <p>
-                Anotaciones
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-            <li class="nav-item">
-                <a href="{{route('anotaciones.index')}}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Lista</p>
-                </a>
-              </li>
-              
-            
-            
-              
-            </ul>
-          </li>
-
-
-         
-
-        
-
-        
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
@@ -1577,67 +1150,9 @@
             </ul>
           </li>
 
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Sesiones
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('sesiones.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Por Atender</p>
-                </a>
-              </li>
-
-
-              <li class="nav-item">
-                <a href="{{route('sesiones1.index')}}" class="nav-link">
-                  <i class="fas fa-cart-arrow-down nav-icon"></i>
-                  <p>Atendidos</p>
-                </a>
-              </li>
-
-            
-              
-            </ul>
-          </li>
-
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-money-check-alt"></i>
-              <p>
-                Métodos Anticonceptivos
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-
-
-            <li class="nav-item">
-                <a href="{{route('metodos.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Lista de Métodos</p>
-                </a>
-              </li>
-              
-              <li class="nav-item">
-                <a href="{{route('llamar.index')}}" class="nav-link">
-                  <i class="fas fa-hand-holding-usd nav-icon"></i>
-                  <p>Pacientes por Llamar</p>
-                </a>
-              </li>
-              
-            </ul>
-          </li>
-
         
 
+      
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-money-check-alt"></i>
