@@ -159,7 +159,19 @@ Route::get('anotaciones/ver/{id}', 'ResultadosController@anotaV');
 Route::get('anotaciones/indicacion/{id}', 'ResultadosController@anotaI');
 Route::post('anotaciones/registrar', 'ResultadosController@anotaP');
 
+Route::get('ventas', 'VentasController@index')->name('ventas.index');
+Route::get('ventas-create', 'VentasController@create')->name('ventas.create')->middleware('auth');
+Route::post('ventas/create', 'VentasController@store')->middleware('auth');
+Route::get('ventas-delete-{id}','VentasController@delete');
+Route::get('ventas-ticket-{id}','VentasController@ticket');
 
+Route::get('ingreso-productos', 'ProductosController@ingproductos')->name('ingproductos.index');
+Route::get('ingproductos-create', 'ProductosController@ingcreate')->name('ingproductos.create')->middleware('auth');
+Route::post('ingreso/productos', 'ProductosController@storeing');
+Route::get('ingreso-reversar-{id}', 'ProductosController@reversar')->middleware('auth');
+Route::get('ingresop-edit-{id}', 'ProductosController@editingreso')->middleware('auth');
+Route::post('ingresosp/update', 'ProductosController@updateingreso');
+Route::get('ingresos/view/{id}', 'ProductosController@ver')->middleware('auth');
 
 
 

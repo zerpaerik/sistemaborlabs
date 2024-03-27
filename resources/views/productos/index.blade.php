@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Borlabs | Admin</title>
+  <title>MasterSalud | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -90,12 +90,14 @@
                 <table id="example" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                  <th>Id</th>
                     <th>Nombre</th>
                     <th>Medida</th>
                     <th>Categoria</th>
-                    <th>Minimo Central</th>
-                    <th>Minimo Local</th>
-
+                    <th>Stock Minimo</th>
+                    <th>Cantidad Actual</th>
+                    <th>Precio</th>
+                    <th>Principio Activo</th>
                     <th>Acciones</th>
                   </tr>
                   </thead>
@@ -103,15 +105,20 @@
 
                   @foreach($productos as $an)
                   <tr>
+                  <td>{{$an->id}}</td>
                     <td>{{$an->nombre}}</td>
                     <td>{{$an->medida}}</td>
                     <td>{{$an->categoria}}</td>
                     <td>{{$an->minimo}}</td>
-                    <td>{{$an->minimol}}</td>
+                    <td>{{$an->cantidad}}</td>
+                    <td>{{$an->precio}}</td>
+                    <td>{{$an->activo}}</td>
+
 
                     <td>
                     @if(Auth::user()->rol == 1)
 
+                      
                           <a class="btn btn-info btn-sm" href="productos-edit-{{$an->id}}">
                               <i class="fas fa-pencil-alt">
                               </i>
@@ -122,6 +129,7 @@
                               </i>
                               Delete
                           </a>
+
 
                        
                           @endif</td>
@@ -135,9 +143,14 @@
                   </tbody>
                   <tfoot>
                   <tr>
-                  <th>Nombre</th>
+                  <th>Id</th>
+                    <th>Nombre</th>
                     <th>Medida</th>
                     <th>Categoria</th>
+                    <th>Stock Minimo</th>
+                    <th>Cantidad Actual</th>
+                    <th>Precio</th>
+                    <th>Principio Activo</th>
                     <th>Acciones</th>
                   </tr>
                   </tfoot>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Borlabs | Admin</title>
+  <title>MasterSalud | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -118,11 +118,12 @@
                   </div>
 
                   <div class="col-md-3">
-                    <label for="exampleInputEmail1">Stock Minimo Local</label>
-                    <input type="number" class="form-control" id="nombre" name="minimol" placeholder="Cantidad Mínima Local" required>
+                    <label for="exampleInputEmail1">Precio</label>
+                    <input type="text" class="form-control" id="nombre" name="precio" placeholder="Precio de Producto" required>
                   </div>
-                 
-                  
+
+              
+
                   </div>
                   <br>
 
