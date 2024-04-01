@@ -119,10 +119,48 @@
                     <input type="float" class="form-control" id="email" name="material" value="{{$analisis->material}}" placeholder="Precio">
                   </div>
 
-                  
-                
+                  </div>
+
+                  <div class="row">
+                  <div class="col-md-4">
+                    <label for="exampleInputEmail1">Còdigo</label>
+                    <input type="float" class="form-control" id="name" name="codigo" placeholder="Còdigo"  value="{{$analisis->codigo}}">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="exampleInputEmail1">Tiempo de Respuesta</label>
+                    <input type="text" class="form-control" id="email" name="tiempo1" placeholder="Tiempo" onkeyup="javascript:this.value=this.value.toUpperCase();"  value="{{$analisis->tiempo1}}">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="exampleInputEmail1">Condiciones Pre Analiticas Pacientes</label>
+                    <input type="text" class="form-control" id="email" name="condiciones" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();"  value="{{$analisis->condiciones}}">
+                  </div>
+
                  
                   </div>
+WW
+                  <div class="row">
+                  <div class="col-md-4">
+                    <label for="exampleInputEmail1">Condiciones Pre Analiticas Referencias</label>
+                    <input type="float" class="form-control" id="name" name="condiciones1" placeholder="" value="{{$analisis->condiciones1}}">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="exampleInputEmail1">Tipo de Muestra</label>
+                    <input type="text" class="form-control" id="email" name="muestra" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{$analisis->muestra}}">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="exampleInputEmail1">Tipo de Tubo</label>
+                    <input type="text" class="form-control" id="email" name="tubo" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{$analisis->tubo}}">
+                  </div>
+
+                 
+                  </div>
+
+                  <div class="row">
+                     <div class="col-md-12">
+                    <label for="exampleInputEmail1">Observaciones </label>
+                    <input type="text" onkeyup="javascript:this.value=this.value.toUpperCase();" class="form-control" id="nombre"   name="observaciones" value="{{$analisis->observaciones}}">
+                   </div>
+                    </div>
                   <br>
                 
 
