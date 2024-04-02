@@ -114,54 +114,48 @@
                     <input type="float" class="form-control" id="name" name="porcentaje" placeholder="Porcentaje">
                   </div>
                   <div class="col-md-4">
-                    <label for="exampleInputEmail1">Tiempo</label>
+                    <label for="exampleInputEmail1">Tiempo De Respuesta</label>
                     <input type="text" class="form-control" id="email" name="tiempo" placeholder="Tiempo" onkeyup="javascript:this.value=this.value.toUpperCase();">
                   </div>
                   <div class="col-md-4">
-                    <label for="exampleInputEmail1">Material</label>
+                    <label for="exampleInputEmail1">Tipo de Tubo</label>
                     <input type="text" class="form-control" id="email" name="material" placeholder="Material" onkeyup="javascript:this.value=this.value.toUpperCase();">
                   </div>
                   </div>
+
+
                   <div class="row">
                   <div class="col-md-4">
                     <label for="exampleInputEmail1">Còdigo</label>
                     <input type="float" class="form-control" id="name" name="codigo" placeholder="Còdigo">
                   </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputEmail1">Tiempo de Respuesta</label>
-                    <input type="text" class="form-control" id="email" name="tiempo1" placeholder="Tiempo" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                  </div>
+             
                   <div class="col-md-4">
                     <label for="exampleInputEmail1">Condiciones Pre Analiticas Pacientes</label>
                     <input type="text" class="form-control" id="email" name="condiciones" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();">
                   </div>
 
-                 
-                  </div>
-
-                  <div class="row">
                   <div class="col-md-4">
                     <label for="exampleInputEmail1">Condiciones Pre Analiticas Referencias</label>
                     <input type="float" class="form-control" id="name" name="condiciones1" placeholder="">
                   </div>
+
+                 
+                  </div>
+                  <div class="row">
+                
                   <div class="col-md-4">
                     <label for="exampleInputEmail1">Tipo de Muestra</label>
                     <input type="text" class="form-control" id="email" name="muestra" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();">
                   </div>
-                  <div class="col-md-4">
-                    <label for="exampleInputEmail1">Tipo de Tubo</label>
-                    <input type="text" class="form-control" id="email" name="tubo" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();">
-                  </div>
 
-                 
-                  </div>
-
-                  <div class="row">
-                     <div class="col-md-12">
+                  <div class="col-md-8">
                     <label for="exampleInputEmail1">Observaciones </label>
                     <input type="text" onkeyup="javascript:this.value=this.value.toUpperCase();" class="form-control" id="nombre"   name="observaciones" >
                    </div>
-                    </div>
+                 
+                  </div>
+
                   <br>
                   
                   

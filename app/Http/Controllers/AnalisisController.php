@@ -66,11 +66,9 @@ class AnalisisController extends Controller
             $analisis->tiempo =$request->tiempo;
             $analisis->porcentaje =$request->porcentaje;
             $analisis->codigo =$request->codigo;
-            $analisis->tiempo1 =$request->tiempo1;
             $analisis->condiciones =$request->condiciones;
             $analisis->condiciones1 =$request->condiciones1;
             $analisis->muestra =$request->muestra;
-            $analisis->tubo =$request->tubo;
             $analisis->observaciones =$request->observaciones;
             $analisis->usuario =Auth::user()->id;
             $analisis->save();
@@ -143,11 +141,9 @@ class AnalisisController extends Controller
       $p->tiempo =$request->tiempo;
       $p->porcentaje =$request->porcentaje;
       $p->codigo =$request->codigo;
-      $p->tiempo1 =$request->tiempo1;
       $p->condiciones =$request->condiciones;
       $p->condiciones1 =$request->condiciones1;
       $p->muestra =$request->muestra;
-      $p->tubo =$request->tubo;
       $p->observaciones =$request->observaciones;
       $res = $p->update();
     
