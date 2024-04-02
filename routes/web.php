@@ -308,6 +308,17 @@ Route::get('materiales-usados', 'ResultadosController@materiales')->name('materi
 Route::get('materiales-malogrados', 'ResultadosController@materialesm')->name('materialesm.index');
 
 
+Route::get('resultados-redactar-{id}', 'ResultadosController@redactar');
+Route::get('resultados-redactars-{id}', 'ResultadosController@redactars');
+Route::get('resultados-redactarp-{id}', 'ResultadosController@redactarp');
+Route::post('resultados/redactar', 'ResultadosController@redactarPost');
+Route::post('resultados/redactarp', 'ResultadosController@redactarPostP');
+Route::post('resultados/redactars', 'ResultadosController@redactarPostS');
+Route::get('resultados-ver-{id}', 'ResultadosController@ver');
+Route::get('resultados-verp-{id}', 'ResultadosController@verp');
+Route::get('resultados-vers-{id}', 'ResultadosController@vers');
+
+
 
 Route::get('resultadosg', 'ResultadosController@indexg')->name('resultados.indexg');
 Route::get('resultadosg-reversar-{id}', 'ResultadosController@reversarg');

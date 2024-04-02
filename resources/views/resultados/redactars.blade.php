@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Borlabs | Admin</title>
+  <title>Borlabs Medic | Admin</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Font Awesome -->
@@ -24,12 +24,19 @@
   <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="plugins/summernote/summernote-bs4.css">
+  <!-- summernote -->
+  <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="../../plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../../plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <!-- DataTables -->
 <link rel="stylesheet" href="../../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="../../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
 <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css"> 
+
+
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -51,18 +58,17 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Resultados Por Hacer Servicio</h1>
+            <h1 class="m-0 text-dark">Redactar Informe</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Resultados Por Hacer Servicio</li>
+              <li class="breadcrumb-item active">Redactar Informe de Servicio</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -72,114 +78,77 @@
 
     <!-- Main content -->
     <section class="content">
-    @include('flash-message')
       <div class="container-fluid">
-      <div class="card">
+        <div class="row">
+          <!-- left column -->
+          <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
               <div class="card-header">
-              <form method="get" action="resultados">					
-                  <label for="exampleInputEmail1">Filtros de Busqueda</label>
-
+                <h3 class="card-title">Agregar</h3>
+              </div>
+              
+              <!-- /.card-header -->
+              <!-- form start -->
+              <form method="post" action="resultados/redactars" accept-charset="UTF-8" enctype="multipart/form-data">					
+                   {{ csrf_field() }}                
+                    <div class="card-body">
+                    @foreach($plantilla as $pla)
                     <div class="row">
                   <div class="col-md-3">
-                    <label for="exampleInputEmail1">Fecha Inicio</label>
-                    <input type="date" class="form-control" value="{{$f1}}" name="inicio">
+                    <label for="exampleInputEmail1">Subtitulo</label>
+                    <input onkeyup="javascript:this.value=this.value.toUpperCase();" type="text" class="form-control" id="name" name="subtitulo[]" placeholder="Nombre de Servicio" value="{{$pla->subtitulo}}" readonly="readonly">
                   </div>
-
-                  <div class="col-md-3">
-                    <label for="exampleInputEmail1">Fecha Fin</label>
-                    <input type="date" class="form-control" value="{{$f2}}" name="fin">
+                  <div class="col-md-9">
+                    <label for="exampleInputEmail1">Valor</label>
+                    <textarea type="float" class="form-control" id="email" name="valor[{{$pla->id}}]" placeholder="Valor de resultado" cols="4" rows="3"></textarea>
                   </div>
-                  
-                
                  
-                  <div class="col-md-2" style="margin-top: 30px;">
-                  <button type="submit" class="btn btn-primary">Buscar</button>
-
+                  <input type="hidden" name="id_plantilla[]" value="{{$pla->id}}">
                   </div>
-                  </form>
-              
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                  <th>id</th>
-                    <th>Fecha</th>
-                    <th>Pac.</th>
-                    <th>Origen</th>
-                    <th>Det.</th>
-                    <th>Informe.</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-
-                  @foreach($resultados as $an)
-                  <tr>
-                  <td>{{$an->id}}</td>
-                   <td>{{$an->created_at}}</td>
-                    @if($an->monto > $an->abono)
-                    <td style="background: yellow;" title="ESTE PACIENTE TIENE DEUDA PENDIENTE">{{$an->apellidos}} {{$an->nombres}}</td>
-                    @else
-                    <td>{{$an->apellidos}} {{$an->nombres}}</td>
-                    @endif                  
-                    <td>{{$an->lastname}} {{$an->name}}</td>
-                    <td>{{$an->servicio}}</td>
-                    <td>
-                    <a href="resultados-redactars-{{$an->id}}" class="btn btn-success">Redactar Informe</a>
-
-                    </td>
-                   
-                  </tr>
                   @endforeach
-                 
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                  <th>id</th>
-                    <th>Fecha</th>
-                    <th>Pac.</th>
-                    <th>Origen</th>
-                    <th>Det.</th>
-                    <th>Informe.</th>
-                  </tr>
-                 
-                  </tfoot>
 
-                </table>
+                  <input type="hidden" name="id_resultado" value="{{$resultados->id}}">
+                  <input type="hidden" name="id_servicio" value="{{$resultados->id_servicio}}">
+
+
+                  
+                  <br>
+                  
+                  
+            
+
+               
+        
+                <!-- /.card-body -->
+
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+              </form>
+            </div>
+            <!-- /.card -->
+
+         
+            <!-- /.card -->
+
+           
+           
+               
+
+
+           
               </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->
           </div>
-          <!-- /.col -->
+          <!--/.col (right) -->
         </div>
         <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
+      </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
-  </div>
-  </div>
-
-  
-  <div class="modal fade" id="viewTicket">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-            </div>
-           
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-  </section>
+    
 
   <!-- /.content-wrapper -->
   
@@ -231,53 +200,122 @@
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+<script src="../../plugins/select2/js/select2.full.min.js"></script>
 
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script> 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.html5.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/buttons.print.min.js"></script>
+<script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../../dist/js/demo.js"></script>
 <!-- page script -->
-<script type="text/javascript">
-		function viewh(e){
-		    var id = $(e).attr('id');
-		    
-		    $.ajax({
-		        type: "GET",
-		        url: "/resultados/anotar/"+id,
-		        success: function (data) {
-		            $("#viewTicket .modal-body").html(data);
-		            $('#viewTicket').modal('show');
-		        },
-		        error: function (data) {
-		            console.log('Error:', data);
-		        }
-		    });
-		}
+<!-- Summernote -->
+<script src="../../plugins/summernote/summernote-bs4.min.js"></script>
 
-	
-	</script>
+<script type="text/javascript">
+      $(document).ready(function(){
+        $('#el2').on('change',function(){
+          var link;
+          if ($(this).val() == 'SALUD') {
+            link = '/servicios/sesiones/';
+          } else {
+		    link = '/servicios/nada/';
+		  }
+
+          $.ajax({
+                 type: "get",
+                 url:  link,
+                 success: function(a) {
+                    $('#sesiones').html(a);
+                 }
+          });
+
+        });
+        
+
+      });
+       
+    </script>
 <script>
   $(function () {
-    $("#example1").DataTable({
-      "responsive": true,
-      "autoWidth": false,
-    });
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
+    // Summernote
+    $('.textarea').summernote()
+  })
 </script>
+<script>
+  $(function () {
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+    //Datemask dd/mm/yyyy
+    $('#datemask').inputmask('dd/mm/yyyy', { 'placeholder': 'dd/mm/yyyy' })
+    //Datemask2 mm/dd/yyyy
+    $('#datemask2').inputmask('mm/dd/yyyy', { 'placeholder': 'mm/dd/yyyy' })
+    //Money Euro
+    $('[data-mask]').inputmask()
+
+    //Date range picker
+    $('#reservationdate').datetimepicker({
+        format: 'L'
+    });
+    //Date range picker
+    $('#reservation').daterangepicker()
+    //Date range picker with time picker
+    $('#reservationtime').daterangepicker({
+      timePicker: true,
+      timePickerIncrement: 30,
+      locale: {
+        format: 'MM/DD/YYYY hh:mm A'
+      }
+    })
+    //Date range as a button
+    $('#daterange-btn').daterangepicker(
+      {
+        ranges   : {
+          'Today'       : [moment(), moment()],
+          'Yesterday'   : [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days' : [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month'  : [moment().startOf('month'), moment().endOf('month')],
+          'Last Month'  : [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        },
+        startDate: moment().subtract(29, 'days'),
+        endDate  : moment()
+      },
+      function (start, end) {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
+      }
+    )
+
+    //Timepicker
+    $('#timepicker').datetimepicker({
+      format: 'LT'
+    })
+    
+    //Bootstrap Duallistbox
+    $('.duallistbox').bootstrapDualListbox()
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
+
+    $('.my-colorpicker2').on('colorpickerChange', function(event) {
+      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
+    });
+
+    $("input[data-bootstrap-switch]").each(function(){
+      $(this).bootstrapSwitch('state', $(this).prop('checked'));
+    });
+
+  })
+</script>
+
 </body>
 </html>

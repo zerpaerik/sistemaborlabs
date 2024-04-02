@@ -17,6 +17,11 @@ use App\PlacasMalogradas;
 use App\Comisiones;
 use App\ResultadosServicios;
 use App\ResultadosLaboratorio;
+use App\ResultadosLabTemplate;
+use App\ResultadosServTemplate;
+use App\Templates;
+use App\TemplatesS;
+use App\Subtitulos;
 use Auth;
 use Illuminate\Http\Request;
 use PhpOffice\PhpWord\TemplateProcessor;
@@ -98,7 +103,7 @@ class ResultadosController extends Controller
   
 
             $resultados = DB::table('resultados_laboratorio as a')
-        ->select('a.id', 'a.id_atencion', 'a.id_laboratorio', 'a.informe','b.usuario','b.resta', 'a.created_at', 'a.estatus','b.sede','b.monto','b.abono', 'b.estatus','b.id_paciente', 'b.id_origen', 's.nombre as laboratorio', 'pa.nombres', 'pa.apellidos', 'c.name', 'c.lastname')
+        ->select('a.id', 'a.id_atencion', 'a.id_laboratorio', 'a.informe','b.usuario','b.resta','a.es_paquete', 'a.created_at', 'a.estatus','b.sede','b.monto','b.abono', 'b.estatus','b.id_paciente', 'b.id_origen', 's.nombre as laboratorio', 'pa.nombres', 'pa.apellidos', 'c.name', 'c.lastname')
         ->join('atenciones as b', 'b.id', 'a.id_atencion')
         ->join('users as c', 'c.id', 'b.id_origen')
         ->join('pacientes as pa', 'pa.id', 'b.id_paciente')
@@ -117,7 +122,7 @@ class ResultadosController extends Controller
 
 
             $resultados = DB::table('resultados_laboratorio as a')
-            ->select('a.id', 'a.id_atencion', 'a.id_laboratorio','a.informe','b.resta', 'b.usuario', 'a.created_at', 'a.estatus','b.sede','b.monto','b.abono','b.estatus', 'b.id_paciente', 'b.id_origen', 's.nombre as laboratorio', 'pa.nombres', 'pa.apellidos', 'c.name', 'c.lastname')
+            ->select('a.id', 'a.id_atencion', 'a.id_laboratorio','a.informe','b.resta','a.es_paquete', 'b.usuario', 'a.created_at', 'a.estatus','b.sede','b.monto','b.abono','b.estatus', 'b.id_paciente', 'b.id_origen', 's.nombre as laboratorio', 'pa.nombres', 'pa.apellidos', 'c.name', 'c.lastname')
             ->join('atenciones as b', 'b.id', 'a.id_atencion')
             ->join('users as c', 'c.id', 'b.id_origen')
             ->join('pacientes as pa', 'pa.id', 'b.id_paciente')
@@ -191,7 +196,7 @@ class ResultadosController extends Controller
           
 
             $resultados = DB::table('resultados_laboratorio as a')
-        ->select('a.id', 'a.id_atencion', 'a.id_laboratorio', 'a.fec_entrega','a.por_entrega','a.entregado','a.informe','a.informe_guarda','b.estatus as sta_ate','b.sede','b.usuario', 'a.created_at', 'a.estatus', 'b.id_paciente', 'b.id_origen', 's.nombre as laboratorio', 'pa.nombres', 'pa.apellidos', 'c.name', 'c.lastname')
+        ->select('a.id', 'a.id_atencion', 'a.id_laboratorio', 'a.es_paquete','a.fec_entrega','a.por_entrega','a.entregado','a.informe','a.informe_guarda','b.estatus as sta_ate','b.sede','b.usuario', 'a.created_at', 'a.estatus', 'b.id_paciente', 'b.id_origen', 's.nombre as laboratorio', 'pa.nombres', 'pa.apellidos', 'c.name', 'c.lastname')
         ->join('atenciones as b', 'b.id', 'a.id_atencion')
         ->join('users as c', 'c.id', 'b.id_origen')
         ->join('pacientes as pa', 'pa.id', 'b.id_paciente')
@@ -205,7 +210,7 @@ class ResultadosController extends Controller
        
 
             $resultados = DB::table('resultados_laboratorio as a')
-            ->select('a.id', 'a.id_atencion', 'a.id_laboratorio','a.entregado','a.fec_entrega','a.por_entrega','a.informe', 'a.informe_guarda','b.estatus as sta_ate','b.sede','b.usuario', 'a.created_at', 'a.estatus', 'b.id_paciente', 'b.id_origen', 's.nombre as laboratorio', 'pa.nombres', 'pa.apellidos', 'c.name', 'c.lastname')
+            ->select('a.id', 'a.id_atencion', 'a.id_laboratorio','a.entregado','a.es_paquete','a.fec_entrega','a.por_entrega','a.informe', 'a.informe_guarda','b.estatus as sta_ate','b.sede','b.usuario', 'a.created_at', 'a.estatus', 'b.id_paciente', 'b.id_origen', 's.nombre as laboratorio', 'pa.nombres', 'pa.apellidos', 'c.name', 'c.lastname')
             ->join('atenciones as b', 'b.id', 'a.id_atencion')
             ->join('users as c', 'c.id', 'b.id_origen')
             ->join('pacientes as pa', 'pa.id', 'b.id_paciente')
@@ -582,6 +587,260 @@ class ResultadosController extends Controller
         return redirect()->route('resultados.index1')
         ->with('success','Creado Exitosamente!');
            
+      }
+
+
+      public function redactar($id)
+      {
+  
+          $resultados = DB::table('resultados_laboratorio as a')
+          ->select('a.id', 'a.id_atencion', 'a.id_laboratorio', 'a.informe','b.usuario', 'a.created_at', 'a.estatus','b.tipo_origen', 'b.id_paciente', 'b.id_origen', 's.nombre as servicio', 'pa.fechanac','pa.nombres', 'pa.apellidos','pa.dni', 'c.name', 'c.lastname')
+          ->join('atenciones as b', 'b.id', 'a.id_atencion')
+          ->join('users as c', 'c.id', 'b.id_origen')
+          ->join('pacientes as pa', 'pa.id', 'b.id_paciente')
+          ->join('analisis as s', 's.id', 'a.id_laboratorio')
+          //->where('a.estatus', '=', 1)
+          ->where('a.id',  '=', $id)
+          //->where('a.monto', '!=', '0')
+          ->first();
+  
+          $plantilla = Templates::where('id_laboratorio','=',$resultados->id_laboratorio)->where('estatus','=', 1)->get();
+  
+  
+          return view('resultados.redactar', compact('resultados','plantilla'));
+  
+        
+      }
+  
+      public function redactars($id)
+      {
+  
+       
+  
+          $resultados = DB::table('resultados_servicios as a')
+          ->select('a.id', 'a.id_atencion', 'a.id_servicio', 'a.informe','b.usuario', 'a.created_at', 'a.estatus','b.tipo_origen', 'b.id_paciente', 'b.id_origen', 's.nombre as servicio', 'pa.fechanac','pa.nombres', 'pa.apellidos','pa.dni', 'c.name', 'c.lastname')
+          ->join('atenciones as b', 'b.id', 'a.id_atencion')
+          ->join('users as c', 'c.id', 'b.id_origen')
+          ->join('pacientes as pa', 'pa.id', 'b.id_paciente')
+          ->join('servicios as s', 's.id', 'a.id_servicio')
+          //->where('a.estatus', '=', 1)
+          ->where('a.id',  '=', $id)
+          //->where('a.monto', '!=', '0')
+          ->first();
+  
+          $subtitulos = Subtitulos::where('estatus','=',1)->get();
+  
+          $plantilla = TemplatesS::where('id_servicio','=',$resultados->id_servicio)->where('estatus','=', 1)->get();
+  
+  
+          $res = DB::table('resultados_serv_template as a')
+          ->select('a.*')
+          ->where('a.id_resultado',  '=', $id)
+          ->get();
+  
+          $resf = DB::table('resultados_serv_template as a')
+          ->select('a.*')
+          ->where('a.id_resultado',  '=', $id)
+          ->first();
+          
+  
+          
+  
+  
+  
+  
+  
+          return view('resultados.redactars', compact('resultados','subtitulos','resf','res','plantilla'));
+  
+        
+      }
+  
+      public function redactarp($id)
+      {
+  
+          $resultados = DB::table('resultados_laboratorio as a')
+          ->select('a.id', 'a.id_atencion', 'a.id_laboratorio', 'a.informe','b.usuario', 'a.created_at', 'a.estatus','b.tipo_origen', 'b.id_paciente', 'b.id_origen', 's.nombre as servicio', 'pa.fechanac','pa.nombres', 'pa.apellidos','pa.dni', 'c.name', 'c.lastname')
+          ->join('atenciones as b', 'b.id', 'a.id_atencion')
+          ->join('users as c', 'c.id', 'b.id_origen')
+          ->join('pacientes as pa', 'pa.id', 'b.id_paciente')
+          ->join('analisis as s', 's.id', 'a.id_laboratorio')
+          //->where('a.estatus', '=', 1)
+          ->where('a.id_atec_paquete',  '=', $id)
+          //->where('a.monto', '!=', '0')
+          ->get();
+  
+          $plantilla = [];
+  
+  
+          foreach($resultados as $key => $res ){
+  
+  
+            $plantillas = DB::table('templates as a')
+            ->select('a.*', 'b.nombre as laboratorio')
+            ->join('analisis as b', 'b.id', 'a.id_laboratorio')
+            ->where('a.id_laboratorio',  '=', $res->id_laboratorio)
+            ->where('a.estatus','=', 1)
+            ->get();
+  
+  
+  
+            array_push($plantilla, $plantillas);
+          }
+  
+  
+  
+  
+          //$plantilla = Templates::where('id_laboratorio','=',$resultados->id_laboratorio)->get();
+  
+          return view('resultados.redactarp', compact('resultados','plantilla','id'));
+  
+        
+      }
+  
+      public function redactarPost(Request $request){
+  
+  
+        $rl = ResultadosLaboratorio::where('id','=',$request->id_resultado)->first();
+  
+        $usuario = DB::table('users')
+        ->select('*')
+        ->where('id','=', Auth::user()->id)
+        ->first();  
+  
+        $at = Atenciones::where('id','=',$rl->id_atencion)->first();
+        $at->informe =  'PLANTILLA';
+        $at->atendido =  2;
+        $at->atendido_por =  $usuario->lastname.' '.$usuario->name;
+        $at->save();
+  
+        $rs = ResultadosLaboratorio::where('id','=',$request->id_resultado)->first();
+        $rs->estatus=3;
+        $rs->usuario_informe=Auth::user()->id;
+        $rs->informe_guarda='PLANTILLA';
+        $rs->save();
+  
+  
+  
+        foreach($request->valor as $key => $val){
+                 // dd($key);
+                  $lab = new ResultadosLabTemplate();
+                  $lab->id_resultado =  $request->id_resultado;
+                  $lab->id_plantilla = $key;
+                  $lab->valor =  $val;
+                  $lab->id_laboratorio = $request->id_laboratorio;
+                  $lab->usuario = Auth::user()->id;
+                  $lab->save();
+        }
+        
+        return redirect()->route('resultados.index1')
+        ->with('success','Creado Exitosamente!');
+  
+      }
+  
+      public function redactarPostS(Request $request){
+  
+  
+  
+  
+        $rl = ResultadosServicios::where('id','=',$request->id_resultado)->first();
+  
+        $usuario = DB::table('users')
+        ->select('*')
+        ->where('id','=', Auth::user()->id)
+        ->first();  
+  
+        $at = Atenciones::where('id','=',$rl->id_atencion)->first();
+        $at->informe =  'PLANTILLA';
+        $at->atendido =  2;
+        $at->atendido_por =  $usuario->lastname.' '.$usuario->name;
+        $at->save();
+  
+        $rs = ResultadosServicios::where('id','=',$request->id_resultado)->first();
+        $rs->estatus=3;
+        $rs->usuario_informe=Auth::user()->id;
+        $rs->informe_guarda='PLANTILLA';
+        $rs->save();
+  
+       /* $lab = new ResultadosServTemplate();
+        $lab->id_resultado =  $request->id_resultado;
+        $lab->subtitulo =  $request->subtitulo;
+        $lab->valor =  $request->contenido;
+        $lab->id_servicio = $request->id_servicio;
+        $lab->usuario = Auth::user()->id;
+        $lab->save();*/
+  
+        
+        foreach($request->valor as $key => $val){
+          // dd($key);
+           $lab = new ResultadosServTemplate();
+           $lab->id_resultado =  $request->id_resultado;
+           $lab->id_plantilla = $key;
+           $lab->subtitulo =  $val;
+           $lab->valor =  $val;
+           $lab->id_servicio = $request->id_servicio;
+           $lab->usuario = Auth::user()->id;
+           $lab->save();
+      }
+  
+      
+        
+      return redirect()->route('resultados.index')
+      ->with('success','Creado Exitosamente!');
+  
+      }
+  
+      public function redactarPostP(Request $request){
+  
+    //    dd($request->all());
+  
+        $rl = ResultadosLaboratorio::where('id_atec_paquete','=',$request->id_atec_paquete)->first();
+  
+        $usuario = DB::table('users')
+        ->select('*')
+        ->where('id','=', Auth::user()->id)
+        ->first();  
+  
+        $at = Atenciones::where('id','=',$rl->id_atencion)->first();
+        $at->informe =  'PLANTILLA';
+        $at->atendido =  2;
+        $at->atendido_por =  $usuario->lastname.' '.$usuario->name;
+        $at->save();
+  
+  
+        $resultado = ResultadosLaboratorio::where('id_atec_paquete','=',$request->id_atec_paquete)->get();
+          if ($resultado != null) {
+              foreach ($resultado as $rs) {
+                  $id_rs = $rs->id;
+                  if (!is_null($id_rs)) {
+                      $rsf = ResultadosLaboratorio::where('id', '=', $id_rs)->first();
+                      $rsf->estatus=3;
+                      $rsf->usuario_informe=Auth::user()->id;
+                      $rsf->informe_guarda='PLANTILLA';
+                      $rsf->save();
+                  }
+              }
+          }
+  
+     
+  
+  
+  
+  
+        foreach($request->valor as $key => $val){
+  
+                 $temp = Templates::where('id','=',$key)->first();
+                  $lab = new ResultadosLabTemplate();
+                  $lab->id_resultado =  $request->id_atec_paquete;
+                  $lab->id_plantilla = $key;
+                  $lab->valor =  $val;
+                  $lab->id_laboratorio = $temp->id_laboratorio;
+                  $lab->usuario = Auth::user()->id;
+                  $lab->save();
+        }
+        
+        return redirect()->route('resultados.index1')
+        ->with('success','Creado Exitosamente!');
+  
       }
 
 
@@ -1128,30 +1387,7 @@ class ResultadosController extends Controller
 
     }
 
-    public function ver($id)
-    {
-	  
-        $req = DB::table('requerimientos as a')
-        ->select('a.id','a.asunto','a.prioridad','a.categoria','a.descripcion','a.estatus','a.estado','a.empresa','b.nombre as empresa')
-        ->join('clientes as b','b.id','a.empresa')
-        ->where('a.empresa', '=', Auth::user()->empresa)
-        ->where('a.estatus', '=', 1)
-        ->where('a.id', '=', $id)
-        ->first(); 
-
-        //$equipos = ActivosRequerimientos::
-
-        $equipos = DB::table('activos_requerimientos as a')
-        ->select('a.id','a.activo','a.ticket','b.nombre','b.modelo','b.serial')
-        ->join('equipos as b','b.id','a.activo')
-        ->where('ticket','=',$id)
-        ->get();
-
-
-	  
-      return view('requerimientos.ver', compact('req','equipos'));
-    }	  
-
+   
     /**
      * Show the form for editing the specified resource.
      *
@@ -1191,6 +1427,160 @@ class ResultadosController extends Controller
 
         //
     }
+
+    public function ver($id)
+    {
+
+      $res_i = DB::table('resultados_laboratorio as a')
+      ->select('a.*','b.*','at.id_paciente','at.tipo_origen','at.id_origen','an.nombre as detalle','t.nombre as nom_val','t.metodo','t.referencia','t.subtitulo','pac.apellidos','pac.nombres','pac.dni','pac.tipo_doc','pac.fechanac','us.name','us.lastname')
+      ->join('resultados_lab_template as b','b.id_resultado','a.id')
+      ->join('analisis as an','an.id','a.id_laboratorio')
+      ->join('templates as t','t.id','b.id_plantilla')
+      ->join('atenciones as at','at.id','a.id_atencion')
+      ->join('pacientes as pac','pac.id','at.id_paciente')
+      ->join('users as us','us.id','at.id_origen')
+      ->where('a.id', '=', $id)
+      ->first(); 
+
+      $edad = Carbon::parse($res_i->fechanac)->age;
+
+
+
+	  
+        $res = DB::table('resultados_laboratorio as a')
+        ->select('a.*','b.*','an.nombre as detalle','t.nombre as nom_val','t.referencia','t.medida','t.subtitulo')
+        ->join('resultados_lab_template as b','b.id_resultado','a.id')
+        ->join('analisis as an','an.id','a.id_laboratorio')
+        ->join('templates as t','t.id','b.id_plantilla')
+        ->where('a.id', '=', $id)
+        ->get(); 
+
+
+
+
+        $view = \View::make('resultados.pdf', compact('res_i','res','edad'));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+     
+    
+        return $pdf->stream('resultados-ver'.'.pdf');  
+
+
+      
+    }	
+    
+    public function verp($id)
+    {
+
+      $res_i = DB::table('resultados_laboratorio as a')
+      ->select('a.*','b.*','at.id_paciente','at.id_origen','at.tipo_origen','an.nombre as detalle','t.nombre as nom_val','t.referencia','t.metodo','t.subtitulo','pac.apellidos','pac.nombres','pac.dni','pac.fechanac','pac.tipo_doc','at.id_tipo','us.name','us.lastname')
+      ->join('resultados_lab_template as b','b.id_resultado','a.id_atec_paquete')
+      ->join('templates as t','t.id','b.id_plantilla')
+      ->join('atenciones as at','at.id','a.id_atencion')
+      ->join('paquetes as an','an.id','at.id_tipo')
+      ->join('pacientes as pac','pac.id','at.id_paciente')
+      ->join('users as us','us.id','at.id_origen')
+      ->where('a.id_atec_paquete', '=', $id)
+      ->first(); 
+
+      $edad = Carbon::parse($res_i->fechanac)->age;
+
+
+
+	  
+      /*  $res = DB::table('resultados_laboratorio as a')
+        ->select('a.*','b.*','an.nombre as detalle','t.nombre as nom_val','t.referencia','t.medida')
+        ->join('resultados_lab_template as b','b.id_resultado','a.id_atec_paquete')
+        ->join('analisis as an','an.id','a.id_laboratorio')
+        ->join('templates as t','t.id','b.id_plantilla')
+        ->where('a.id_atec_paquete', '=', $id)
+        ->get(); */
+
+        $res = DB::table('resultados_lab_template as a')
+        ->select('a.*','b.*','t.nombre as nom_val','b.metodo','t.referencia','t.medida','t.metodo','t.subtitulo')
+        ->join('analisis as b','b.id','a.id_laboratorio')
+       // ->join('analisis as an','an.id','a.id_laboratorio')
+        ->join('templates as t','t.id','a.id_plantilla')
+        ->where('a.id_resultado', '=', $id)
+        //->groupBy('b.id_resultado')
+        ->get();
+
+
+
+
+        $view = \View::make('resultados.pdf', compact('res_i','res','edad'));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+     
+    
+        return $pdf->stream('resultados-ver'.'.pdf');  
+
+
+      
+    }	  
+
+    public function vers($id)
+    {
+
+   
+
+    
+      $res_i = DB::table('resultados_servicios as a')
+      ->select('a.id', 'a.id_atencion', 'a.id_servicio', 'a.informe','b.usuario', 'a.created_at', 'a.estatus','b.tipo_origen', 'b.id_paciente', 'b.id_origen', 's.nombre as servicio', 'pa.fechanac','pa.nombres', 'pa.apellidos','pa.dni','pa.tipo_doc', 'c.name', 'c.lastname')
+      ->join('atenciones as b', 'b.id', 'a.id_atencion')
+      ->join('users as c', 'c.id', 'b.id_origen')
+      ->join('pacientes as pa', 'pa.id', 'b.id_paciente')
+      ->join('servicios as s', 's.id', 'a.id_servicio')
+      //->where('a.estatus', '=', 1)
+      ->where('a.id',  '=', $id)
+      //->where('a.monto', '!=', '0')
+      ->first();
+
+
+
+
+      $edad = Carbon::parse($res_i->fechanac)->age;
+
+
+
+	  
+      /*  $res = DB::table('resultados_laboratorio as a')
+        ->select('a.*','b.*','an.nombre as detalle','t.nombre as nom_val','t.referencia','t.medida')
+        ->join('resultados_lab_template as b','b.id_resultado','a.id_atec_paquete')
+        ->join('analisis as an','an.id','a.id_laboratorio')
+        ->join('templates as t','t.id','b.id_plantilla')
+        ->where('a.id_atec_paquete', '=', $id)
+        ->get(); */
+
+        $res = DB::table('resultados_serv_template as a')
+        ->select('a.*')
+        ->where('a.id_resultado', '=', $id)
+        ->get();
+
+        $res = DB::table('resultados_serv_template as a')
+        ->select('a.*','b.*','t.subtitulo')
+        ->join('servicios as b','b.id','a.id_servicio')
+       // ->join('analisis as an','an.id','a.id_laboratorio')
+        ->join('templates_s as t','t.id','a.id_plantilla')
+        ->where('a.id_resultado', '=', $id)
+        //->groupBy('b.id_resultado')
+        ->get();
+
+
+
+
+
+
+        $view = \View::make('resultados.pdfs', compact('res_i','res','edad'));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+     
+    
+        return $pdf->stream('resultados-ver'.'.pdf');  
+
+
+      
+    }	  
 
  
     public function delete($id)
