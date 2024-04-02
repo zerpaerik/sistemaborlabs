@@ -83,27 +83,10 @@ class AnalisisController extends Controller
 
     public function ver($id)
     {
-	  
-        $req = DB::table('requerimientos as a')
-        ->select('a.id','a.asunto','a.prioridad','a.categoria','a.descripcion','a.estatus','a.estado','a.empresa','b.nombre as empresa')
-        ->join('clientes as b','b.id','a.empresa')
-        ->where('a.empresa', '=', Auth::user()->empresa)
-        ->where('a.estatus', '=', 1)
-        ->where('a.id', '=', $id)
-        ->first(); 
-
-        //$equipos = ActivosRequerimientos::
-
-        $equipos = DB::table('activos_requerimientos as a')
-        ->select('a.id','a.activo','a.ticket','b.nombre','b.modelo','b.serial')
-        ->join('equipos as b','b.id','a.activo')
-        ->where('ticket','=',$id)
-        ->get();
-
-
-	  
-      return view('requerimientos.ver', compact('req','equipos'));
-    }	  
+      $analisis = Analisis::where('id','=',$id)->first();
+   
+      return view('analisis.ver', compact('analisis'));
+    }
 
     /**
      * Show the form for editing the specified resource.

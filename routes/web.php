@@ -120,6 +120,8 @@ Route::get('analisis-edit-{id}', 'AnalisisController@edit')->name('analisis.edit
 Route::post('analisis/edit', 'AnalisisController@update');
 Route::get('analisis-dispon-{id}', 'AnalisisController@dispon');
 Route::get('analisis-dispon1-{id}-{id2}', 'AnalisisController@dispon1');
+Route::get('analisis/ver/{id}', 'AnalisisController@ver')->middleware('auth');
+
 
 Route::get('servicios', 'ServiciosController@index')->name('servicios.index');
 Route::get('servicios-create', 'ServiciosController@create')->name('servicios.create')->middleware('auth');
