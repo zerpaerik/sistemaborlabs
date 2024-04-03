@@ -124,43 +124,44 @@
                     <label for="exampleInputEmail1">Còdigo</label>
                     <input type="float" class="form-control" id="name" name="codigo" placeholder="Còdigo"  value="{{$analisis->codigo}}" disabled>
                   </div>
-                
-                  <div class="col-md-8">
-                    <label for="exampleInputEmail1">Condiciones Pre Analiticas Pacientes</label>
-                    <input type="text" class="form-control" id="email" name="condiciones" placeholder="" disabled onkeyup="javascript:this.value=this.value.toUpperCase();"  value="{{$analisis->condiciones}}">
-                  </div>
-               
 
-                 
-                  </div>
-
-                  <div class="row">
-                  <div class="col-md-8">
-                    <label for="exampleInputEmail1">Condiciones Pre Analiticas Referencias</label>
-                    <input type="float" class="form-control" id="name" name="condiciones1" placeholder="" disabled value="{{$analisis->condiciones1}}">
-                  </div>
-                
                   <div class="col-md-4">
                     <label for="exampleInputEmail1">Tipo de Muestra</label>
                     <input type="text" class="form-control" id="email" name="muestra" placeholder="" onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{$analisis->muestra}}" disabled>
                   </div>
 
-              
+                
+                
 
                  
                   </div>
 
+
+
                   <div class="row">
+                <div class="col-md-12">
+                    <label for="exampleInputEmail1">Condiciones Pre Analiticas Pacientes</label>
+                    <textarea name="" id="" cols="120" rows="5" disabled>{{$analisis->condiciones}}</textarea>
+
+                   </div>
+
+                   <div class="row">
+                <div class="col-md-12">
+                    <label for="exampleInputEmail1">Condiciones Pre Analiticas Referencias</label>
+                    <textarea name="" id="" cols="120" rows="5" disabled>{{$analisis->condiciones1}}</textarea>
+
+                   </div>
+
                 
              
-                <div class="col-md-12">
-                  <label for="exampleInputEmail1">Observaciones </label>
-                  <input type="text" onkeyup="javascript:this.value=this.value.toUpperCase();" disabled class="form-control" id="nombre"   name="observaciones" value="{{$analisis->observaciones}}">
-                 </div>
-         
-
                
-                </div>
+
+                <div class="row">
+                <div class="col-md-12">
+                    <label for="exampleInputEmail1">Observaciones</label>
+                    <textarea name="" id="" cols="120" rows="5" disabled>{{$analisis->observaciones}}</textarea>
+
+                   </div>
 
                   <br>
                 

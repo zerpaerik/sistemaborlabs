@@ -39,7 +39,7 @@
 
     <div  style="font-size: 15px; text-align: center;margin-bottom:-60px;margin-top: -30px;">
     <div class="" style="font-size: 35px; text-align: center;margin-bottom: 15px;">
-		<img src="/var/www/html/sistemaborlabs/public/logo_ borlabs_1.png.png"  style="width: 40%; color: black;"/>
+		<img src="/var/www/html/sistemaborlabs/public/logo_ borlabs_1.png"  style="width: 40%; color: black;"/>
 	</div>
 
 		<p><strong>BORLABS MEDIC-{{Session::get('sedeName')}}</strong></p>
