@@ -107,7 +107,9 @@
                     <td>{{$an->costo}}</td>
                     <td>{{$an->porcentaje}}</td>
                     <td>
-                    <a class="btn btn-success btn-sm" id="{{$an->id}}" onclick="view(this)">
+                   
+
+                          <a class="btn btn-info btn-sm" href="analisis-ver-{{$an->id}}">
                               <i class="fas fa-eye">
                               </i>
                               Ver

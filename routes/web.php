@@ -117,6 +117,7 @@ Route::get('analisis-create', 'AnalisisController@create')->name('analisis.creat
 Route::post('analisis/create', 'AnalisisController@store')->middleware('auth');
 Route::get('analisis-delete-{id}', 'AnalisisController@delete')->middleware('auth');
 Route::get('analisis-edit-{id}', 'AnalisisController@edit')->name('analisis.edit');
+Route::get('analisis-ver-{id}', 'AnalisisController@verView')->name('analisis.ver');
 Route::post('analisis/edit', 'AnalisisController@update');
 Route::get('analisis-dispon-{id}', 'AnalisisController@dispon');
 Route::get('analisis-dispon1-{id}-{id2}', 'AnalisisController@dispon1');

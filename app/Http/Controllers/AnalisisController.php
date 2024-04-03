@@ -88,6 +88,14 @@ class AnalisisController extends Controller
       return view('analisis.ver', compact('analisis'));
     }
 
+    
+    public function verView($id)
+    {
+      $analisis = Analisis::where('id','=',$id)->first();
+   
+      return view('analisis.ver', compact('analisis'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
