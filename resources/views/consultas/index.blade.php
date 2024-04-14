@@ -127,6 +127,20 @@
                     <td><span class="badge bg-success">PEDIATRICA</span></td> 
                     @elseif($an->tipo == 4)
                     <td><span class="badge bg-success">MEDICINA GENERAL</span></td>
+                    @elseif($an->tipo == 5)
+                    <td><span class="badge bg-success">NEUMONOLOGIA</span></td>
+                    @elseif($an->tipo == 6)
+                    <td><span class="badge bg-success">NEFROLOGIA</span></td>
+                    @elseif($an->tipo == 7)
+                    <td><span class="badge bg-success">NEUROLOGIA</span></td>
+                    @elseif($an->tipo == 8)
+                    <td><span class="badge bg-success">OTORRINO</span></td>
+                    @elseif($an->tipo == 9)
+                    <td><span class="badge bg-success">UROLOGIA</span></td>
+                    @elseif($an->tipo == 10)
+                    <td><span class="badge bg-success">TRAUMATOLOGIA</span></td>
+                    @elseif($an->tipo == 11)
+                    <td><span class="badge bg-success">PSIQUIATRIA</span></td>
                     @else
                     <td><span class="badge bg-success">CONTROL</span></td>
                     @endif

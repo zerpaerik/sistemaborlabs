@@ -734,16 +734,21 @@
                             <option value="1">Consulta Ginecológica</option>
                             <option value="3">Consulta Pediàtrica</option>
                             <option value="4">Consulta Medicina General</option>
+                            <option value="5">Consulta Neumología</option>
+                            <option value="6">Consulta Nefrología</option>
+                            <option value="7">Consulta Neurólogia</option>
+                            <option value="8">Consulta Otorrino</option>
+                            <option value="9">Consulta Urología</option>
+                            <option value="10">Consulta Traumatología</option>
+                            <option value="11">Consulta Psiquiatría</option>
                             <option value="2">Control</option>
                         </select>
                   </div>
                   <div class="col-md-2">
                   <label>Especialista</label>
                         <select class="form-control" name="esp_con">
-                          <option value="">Seleccione</option>
-                          @foreach($personal as $p)
-                          <option value="{{$p->id}}">{{$p->lastname}} {{$p->name}}</option>
-                          @endforeach
+                          <option value="99">Otros Otros</option>
+                    
                         </select>
                   </div>
                   <div class="col-md-2">
